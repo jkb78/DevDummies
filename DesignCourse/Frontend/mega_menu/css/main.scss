@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+header {
+    padding: 2em;
+
+    .logo {
+        color: #000;
+        font-weight: 600;
+    }
+
+    .menu-btn {
+        width: 18px;
+        float: right;
+        cursor: pointer;
+    }
+
+}
+
+section {
+    padding: 4em;
+
+    h1 {
+        font-size: 4em;
+        margin: 1em auto;
+        width: 70%;
+
+        &::before {
+            content: ' ';
+            border-top: 5px solid rgb(202, 200, 200);
+            display: block;
+        }
+    }
+}
+
+nav {
+    position: absolute;
+    background-color: #000;
+    padding: 2em;
+    width: calc(100% - 4em);
+    height: calc(100vh - 4em);
+    display: none;
+    transform: scaleX(0);
+    transform-origin: right;
+
+    .close-btn {
+        width: 18px;
+        float: right;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 10% auto 0 auto;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        width: 80%;
+
+        a {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.4em;
+        }
+
+        span {
+            color: gray;
+            display: block;
+            font-size: .75rem;
+            margin-top: 20px;
+        }
+
+        li {
+            opacity: 0;
+        }
+
+        li:nth-of-type(1) {
+            animation: menu-item-anim .6s forwards 1s ease-in-out;
+        }
+
+        li:nth-of-type(2) {
+            animation: menu-item-anim .6s forwards 1.2s ease-in-out;
+        }
+
+        li:nth-of-type(3) {
+            animation: menu-item-anim .6s forwards 1.4s ease-in-out;
+        }
+
+        li:nth-of-type(4) {
+            animation: menu-item-anim .6s forwards 1.6s ease-in-out;
+        }
+    }
+}
+
+.show-menu {
+    display: block;
+    animation: slide-menu 1s ease-in forwards;
+
+    .close-btn {
+        animation: show-close-btn 1s 1s forwards;
+    }
+}
+
+@keyframes slide-menu {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes show-close-btn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes menu-item-anim {
+    from {
+        transform: translateY(60%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Generated with Bounce.js */
+/* Mostrar rápidamente */
+/*
+@keyframes menu-item-anim {
+      0% { opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 300, 0, 1); }
+    4.3% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 145.719, 0, 1); }
+   8.61% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 36.424, 0, 1); }
+  12.91% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -15.683, 0, 1); }
+  17.22% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -28, 0, 1); }
+  28.33% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -6.188, 0, 1); }
+  39.44% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1.869, 0, 1); }
+  61.66% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.125, 0, 1); }
+  83.98% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.008, 0, 1); }
+    100% { opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+}
+*/
+@media only screen and (max-width: 700px)  {
+    nav {
+        ul {
+            grid-template-columns: repeat(2, 50%);
+
+            li {
+                margin-bottom: 5em;
+            }
+        }
+    }
+}
